@@ -16,7 +16,7 @@ model file {
   url String
   userId String
   folderId String?
-  folder folder? @relation(fields: [folderId], references: [id])
+  folder folder? @relation(fields: [folderId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

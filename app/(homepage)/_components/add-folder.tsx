@@ -84,7 +84,6 @@ const AddFolder = () => {
                             </Button>
                         </div>
                     </form>
-                    
                 </DialogContent>
             </Dialog>  
         </>
