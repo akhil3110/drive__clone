@@ -1,6 +1,7 @@
 import { UserButton } from "@clerk/nextjs";
 import { PackageOpen } from "lucide-react";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 const Navbar = () => {
     return ( 
@@ -22,7 +23,9 @@ const Navbar = () => {
                             className=" mr-5 text-white text-xl font-extrabold hover:text-sky-500"
                             href="/folders"
                         >
-                                Folders
+                                <Button>
+                                    Folders
+                                </Button>
                         </Link>
                         <div>
                             <UserButton />

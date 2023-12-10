@@ -6,6 +6,7 @@ import DeleteFolder from "./_components/delete-folder";
 import EditFolder from "./_components/edit-folder";
 import AddFileInFolder from "./_components/add-file-in-folder";
 import Link from "next/link";
+import FileListInFolder from "./_components/file-list-in-folder";
 
 
 
@@ -53,6 +54,11 @@ const FolderId = async({
                         folderId={params.folderId}
                     />
                 </div>
+            </div>
+            <div>
+                <FileListInFolder
+                    folderId={params.folderId}
+                />
             </div>
         </div>
      );

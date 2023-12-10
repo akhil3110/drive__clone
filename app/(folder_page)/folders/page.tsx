@@ -1,7 +1,7 @@
 "use client"
 
-import { ArrowLeft, ArrowLeftSquare } from "lucide-react";
-import FolderList from "./_components/folder-list";
+import { ArrowLeft, ArrowLeftSquare, MoveLeft } from "lucide-react";
+import FolderList from "../../../components/folder-list";
 import { useRouter } from "next/navigation";
 
 
@@ -11,16 +11,18 @@ const Folders = () => {
 
     return ( 
         <div className="mt-5">
-            <div className="flex text-2xl font-extrabold text-slate-200 gap-3">
-                <ArrowLeft 
-                    className="h-8  font-bold cursor-pointer"
-                    onClick={()=>{
-                        router.push("/")
-                    }}
+            <div 
+                className="flex text-2xl font-semibold text-slate-200 gap-3 cursor-pointer"
+                onClick={()=>{
+                    router.push("/")
+                }}
+            >
+                <MoveLeft 
+                    className="h-8  font-bold"
                 />
-                <h1 className=" ">Folders</h1>
+                <h1 className=" ">Go Back</h1>
             </div>
-            <div>
+            <div className=" mx-5">
                 <FolderList/>
             </div>
         </div>

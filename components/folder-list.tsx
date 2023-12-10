@@ -53,7 +53,10 @@ const FolderList = () => {
    },[folders])
     return ( 
         <>
-        <div className="flex gap-3 mt-3">
+        <div className="flex justify-between items-center mt-5">
+                <h1 className="text-3xl text-white font-bold">Folders</h1>
+        </div>
+        <div className="flex gap-3 mt-5">
            {folders.map((folder)=>(
                 <div key={folder.id}>
                     <div 

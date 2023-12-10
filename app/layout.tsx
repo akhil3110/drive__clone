@@ -22,15 +22,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className="bg-[#525FE1]">
-          <div>
-            <div>
-              <Toaster/>
-              <Navbar/>
-            </div> 
-            <div className='mx-5'>
-              {children}
-            </div>
-          </div>
+            {children}
           </body>
       </html>
     </ClerkProvider>
