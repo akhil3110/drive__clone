@@ -50,7 +50,7 @@ const FolderList = () => {
             setFolders(res.data)
         }
         getFolders()
-   },[folders])
+   },[])
     return ( 
         <>
         <div className="flex justify-between items-center mt-5">

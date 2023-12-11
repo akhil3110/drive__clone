@@ -43,7 +43,8 @@ const FileListInFolder = ({
                     {files.map((file: File) => (
                         <div key={file.id}>
                             <div>
-                                <FileList 
+                                <FileList
+                                    id = {file.id} 
                                     name={shortenString(file.name, 10)}
                                     url={file.url}
                                 />

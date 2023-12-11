@@ -35,8 +35,6 @@ const FileListHomePage = ({
 
     useEffect(() => {
         const getFiles = async () => {
-            console.log("folderId", folderId)
-            console.log("data", data)
             const response = await axios.get("/api/files/homepage");
             setFiles(response.data);
         }
@@ -46,21 +44,33 @@ const FileListHomePage = ({
 
     return ( 
         <>
-            <div className="flex justify-between items-center ">
+            <div className="flex justify-between items-center">
                 <h1 className="text-3xl text-white font-bold">Files</h1>
             </div>
-            <div className="flex gap-2 mt-5">
-            {files.map((file)=>(
-                <div key={file.id}>
-                    <div >
-                        <FileList 
-                            name={shortenString(file.name, 10)}
-                            url={file.url}
-                        />
+            {files.length === 0 ? (
+                <>
+                    <div className="flex flex-col justify-center items-center h-40">
+                        <h1 className="text-2xl text-slate-300 font-bold">No files found</h1>
+                        <h2 className="text-slate-300">Please Add file</h2>
                     </div>
-                </div>
-            ))}
-            </div>   
+                </>
+            ):(
+                <>
+                    <div className="flex gap-2 mt-5">
+                        {files.map((file)=>(
+                            <div key={file.id}>
+                                <div>
+                                    <FileList 
+                                        id = {file.id}
+                                        name={shortenString(file.name, 10)}
+                                        url={file.url}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>     
+                </>
+            )}
         </>
      );
 }

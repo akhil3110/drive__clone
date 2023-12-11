@@ -6,22 +6,55 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
+  
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+  } from "@/components/ui/dropdown-menu"
 import { File, MoreVertical } from "lucide-react";
 import Link from "next/link";
+import DeleteFile from "./delte-file";
+import EditFile from "./edit-file";
 
 interface FileListProps {
+    id: string;
     name: string;
     url: string;
 }
 
 const FileList = ({
+    id,
     name,
     url
 }: FileListProps) => {
     return ( 
         <>
-           <Link href={url} target="_blank">
+           
                 <Card>
+                    <div
+                        className="flex absolute cursor-pointer h-8 w-8"
+                    >
+                        <DropdownMenu>
+                            <DropdownMenuTrigger>
+                                    <MoreVertical size={25} />
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                                <EditFile
+                                    id={id}
+                                    name={name}
+                                />
+                                <DropdownMenuSeparator />
+                                <DeleteFile 
+                                    id={id}
+                                />
+                        </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
+                    <Link href={url} target="_blank">
                     <CardHeader
                         className="flex items-center justify-center bg-gray-300 rounded-md"
                     >
@@ -39,8 +72,8 @@ const FileList = ({
                         </CardTitle>
                         <CardDescription>Click to view</CardDescription>
                     </CardContent>
+                    </Link>
                 </Card>
-           </Link>
         </>
      );
 }
