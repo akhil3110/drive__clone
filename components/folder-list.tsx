@@ -51,6 +51,9 @@ const FolderList = () => {
         }
         getFolders()
    },[])
+
+   if(folders.length === 0) return
+
     return ( 
         <>
         <div className="flex justify-between items-center mt-5">
