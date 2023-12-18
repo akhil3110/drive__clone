@@ -16,6 +16,7 @@ import { DropdownMenuLabel } from "./ui/dropdown-menu";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 interface EditFileProps {
     id: string;
@@ -39,12 +40,16 @@ const EditFile = ({
         formState: { errors },
       } = useForm<Inputs>()
 
+      const [isEdditing, setIsEdditing] = useState(false);
+
     const router = useRouter();
 
     const onSubmit: SubmitHandler<Inputs> = async(data) =>{
         try {
+            setIsEdditing(true);
             const res = await axios.put(`/api/files/${id}`, data);
             toast.success("File renamed successfully");
+            setIsEdditing(false);
             window.location.reload();
         } catch (error) {
             console.log(error);
@@ -79,7 +84,11 @@ const EditFile = ({
                                     {...register("name")}
                                     className=" border-gray-600"
                                 />
-                                 <Button type="submit" className="px-3">
+                                 <Button 
+                                    disabled={isEdditing}
+                                    type="submit" 
+                                    className="px-3"
+                                >
                                     Submit
                                 </Button>
                             </div>

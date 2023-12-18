@@ -41,9 +41,8 @@ const AddFolder = () => {
             setIsEditing(true)
             const res = await axios.post("/api/folder", data).then()
             toast.success("Folder Created")
-            setIsEditing(false)
             router.push("/folders/"+ res.data.id)
-
+            setIsEditing(false)
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong")

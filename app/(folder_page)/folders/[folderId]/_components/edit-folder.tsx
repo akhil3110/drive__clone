@@ -5,10 +5,7 @@ import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
-    DialogFooter,
     DialogHeader,
-    DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
 import { Label } from "@/components/ui/label";
@@ -16,11 +13,9 @@ import { Input } from "@/components/ui/input";
 import { SubmitHandler, useForm } from "react-hook-form";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { redirect, useRouter } from "next/navigation";
+import {useRouter } from "next/navigation";
 import { DialogClose } from "@radix-ui/react-dialog";
-import { useEffect, useState } from "react";
-import { PrismaClient } from "@prisma/client";
-import { db } from "@/lib/db";
+
 
 type Inputs = {
     folder_name: string,
