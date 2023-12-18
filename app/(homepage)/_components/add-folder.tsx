@@ -6,12 +6,9 @@ import { useForm, SubmitHandler } from "react-hook-form"
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-    DialogClose,
-    DialogFooter
   } from "@/components/ui/dialog"
 import { PlusCircle } from "lucide-react";
 import { Label } from "@radix-ui/react-label";

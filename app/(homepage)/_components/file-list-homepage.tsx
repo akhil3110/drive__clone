@@ -1,7 +1,6 @@
 "use client";
 
 import FileList from "@/components/file-list";
-import { Separator } from "@/components/ui/separator";
 import { shortenString } from "@/lib/shorten-string";
 import axios from "axios";
 import { useEffect, useState } from "react";

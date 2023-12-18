@@ -13,7 +13,6 @@ import {
 
 import { Button } from "@/components/ui/button"
 import axios from "axios";
-import {Trash } from "lucide-react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 

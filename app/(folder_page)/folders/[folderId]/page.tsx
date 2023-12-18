@@ -1,5 +1,4 @@
 import { db } from "@/lib/db";
-import { PrismaClient } from "@prisma/client";
 import { MoveLeft, Pen, PlusCircle, Trash } from "lucide-react";
 import { redirect } from "next/navigation";
 import DeleteFolder from "./_components/delete-folder";
