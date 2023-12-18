@@ -19,6 +19,7 @@ import { Input } from "@/components/ui/input"
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 type Inputs = {
     folder_name: string,
@@ -35,11 +36,15 @@ const AddFolder = () => {
       } = useForm<Inputs>()
 
       const router = useRouter()
+
+      const [isEditing, setIsEditing] = useState(false)
       
       const onSubmit: SubmitHandler<Inputs> = async(data) =>{
         try {
-            const res = await axios.post("/api/folder", data)
+            setIsEditing(true)
+            const res = await axios.post("/api/folder", data).then()
             toast.success("Folder Created")
+            setIsEditing(false)
             router.push("/folders/"+ res.data.id)
 
         } catch (error) {
@@ -79,7 +84,12 @@ const AddFolder = () => {
                                     {...register("folder_name")}
                                 />
                             </div>
-                            <Button type="submit" size="sm" className="px-3">
+                            <Button 
+                                disabled={isEditing}
+                                type="submit" 
+                                size="sm" 
+                                className="px-3"
+                            >
                                 Submit
                             </Button>
                         </div>
