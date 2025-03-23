@@ -12,7 +12,7 @@ export default function Home() {
           <AddFile />
           <AddFolder />
         </div>
-        <div className='mt-5'>
+        <div className='mt-5 w-full'>
           <FileListHomePage/>
           <Separator  className=' mt-5' />
           <FolderList />

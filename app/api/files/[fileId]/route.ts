@@ -45,7 +45,6 @@ export async function PUT(
         }
 
         const {name} =  await req.json()
-
         const UpdatedFile = await db.file.update({
             where:{
                 id: params.fileId,
