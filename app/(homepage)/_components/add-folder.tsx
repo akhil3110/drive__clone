@@ -54,7 +54,7 @@ const AddFolder = () => {
         <>
             <Dialog>
                 <DialogTrigger>
-                    <Button className="flex gap-x-1 ">
+                    <Button className="flex gap-x-1 bg-[#3b82f6] text-[#f8fafc] hover:bg-[#2563eb] border-solid  hover:border-[#2563eb]">
                         <PlusCircle />
                         Add Folder
                     </Button>

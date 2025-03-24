@@ -59,7 +59,7 @@ const EditFolder = ({
             <Dialog>
                 <DialogTrigger>
                     <Button
-                        className="flex gap-x-2"
+                        className="flex gap-x-2 bg-[#3b82f6] text-[#f8fafc] hover:bg-[#2563eb] border-solid  hover:border-[#2563eb]"
                     >   
                     Edit Folder Name
                 </Button>

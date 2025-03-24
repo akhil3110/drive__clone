@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 const Navbar = () => {
     return ( 
         <>
-            <div className="w-full bg-[#F86F03] rounded-md">
+            <div className="w-full bg-[#0f172a] rounded-b-md">
                 <div className="flex justify-between p-3">
                     <Link href="/">
                         <div className="flex text-white text-3xl font-extrabold gap-x-1">
@@ -20,10 +20,10 @@ const Navbar = () => {
                     </Link>
                     <div className="flex mr-5">
                         <Link 
-                            className=" mr-5 text-white text-xl font-extrabold hover:text-sky-500"
+                            className=" mr-5 text-white text-xl font-extrabol"
                             href="/folders"
                         >
-                                <Button>
+                                <Button className="bg-slate-700 hover:bg-indigo-600">
                                     Folders
                                 </Button>
                         </Link>
