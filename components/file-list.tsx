@@ -34,7 +34,7 @@ const FileList = ({
     return ( 
         <>
            
-                <Card>
+                    <Card className="bg-[#1f2937] border border-slate-700 text-slate-50 shadow-lg">
                     <div
                         className="flex absolute cursor-pointer h-8 w-8"
                     >
@@ -56,7 +56,7 @@ const FileList = ({
                     </div>
                     <Link href={url} target="_blank">
                     <CardHeader
-                        className="flex items-center justify-center bg-gray-300 rounded-md"
+                        className="flex items-center justify-center bg-gray-600 rounded-md border border-slate-700"
                     >
                         <File size={45} />
                     </CardHeader>

@@ -64,16 +64,16 @@ const FolderList = () => {
            {folders.map((folder)=>(
                 <div key={folder.id}>
                     <div 
-                        className=" h-36 w-100 border cursor-pointer bg-slate-300 rounded-xl" 
+                        className=" h-36 w-100 border cursor-pointer bg-slate-900 border-slate-400 hover:bg-slate-800 rounded-xl" 
                     >
                         <div 
                               onClick={()=>{
                                 router.push(`/folders/${folder.id}`)
                             }}
                         >
-                            <FolderDot className="mt-2 h-24 w-36"/>
+                            <FolderDot className="mt-2 h-24 w-36 text-slate-50 "/>
                             <div className="flex justify-center">
-                                <h3 className=" text-lg font-bold">
+                                <h3 className=" text-lg font-bold text-slate-100">
                                     {shortenString(folder.folder_name,10)}
                                 </h3>
                             </div>
