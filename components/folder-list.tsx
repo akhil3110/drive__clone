@@ -28,6 +28,7 @@ import { Button } from "@/components/ui/button";
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
+import { shortenString } from "@/lib/shorten-string";
 
 
 type folderType = {
@@ -63,7 +64,7 @@ const FolderList = () => {
            {folders.map((folder)=>(
                 <div key={folder.id}>
                     <div 
-                        className=" h-36 w-36 border cursor-pointer bg-slate-300 rounded-xl" 
+                        className=" h-36 w-100 border cursor-pointer bg-slate-300 rounded-xl" 
                     >
                         <div 
                               onClick={()=>{
@@ -73,7 +74,7 @@ const FolderList = () => {
                             <FolderDot className="mt-2 h-24 w-36"/>
                             <div className="flex justify-center">
                                 <h3 className=" text-lg font-bold">
-                                    {folder.folder_name}
+                                    {shortenString(folder.folder_name,10)}
                                 </h3>
                             </div>
                         </div>

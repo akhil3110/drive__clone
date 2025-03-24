@@ -7,7 +7,7 @@ import FolderList from '../../components/folder-list';
 export default function Home() {
   return (
     <>
-      <div className='mt-7'>
+      <div className='mt-7 mb-20'>
         <div className='flex gap-x-3'>
           <AddFile />
           <AddFolder />
