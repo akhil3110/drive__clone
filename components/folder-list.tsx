@@ -29,6 +29,7 @@ import { Button } from "@/components/ui/button";
     DialogTrigger,
   } from "@/components/ui/dialog"
 import { shortenString } from "@/lib/shorten-string";
+import useFolderStore from "@/store/folder-store";
 
 
 type folderType = {
@@ -42,18 +43,9 @@ type folderType = {
 const FolderList = () => {
 
     const router = useRouter()
-    const [folders, setFolders] = useState<folderType[]>([])
+    const {folders} = useFolderStore()
 
 
-   useEffect(() => {
-        const getFolders = async () => {
-            const res = await axios.get("/api/folder")
-            setFolders(res.data)
-        }
-        getFolders()
-   },[])
-
-   if(folders.length === 0) return
 
     return ( 
         <>

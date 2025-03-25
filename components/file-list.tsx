@@ -33,7 +33,6 @@ const FileList = ({
 }: FileListProps) => {
     return ( 
         <>
-           
                     <Card className="bg-[#1f2937] border border-slate-700 text-slate-50 shadow-lg">
                     <div
                         className="flex absolute cursor-pointer h-8 w-8"

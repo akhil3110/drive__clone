@@ -45,9 +45,10 @@ const DeleteFolder = ({
         <>
             <Dialog>
                 <DialogTrigger asChild>
-                    <Button 
+                    <Button
+                        size={'default'}
                         variant="destructive"
-                        className="flex gap-x-2"
+                        className="flex gap-x-2 border-solid mt-1"
                     >   
                         Delete Folder
                     </Button>
