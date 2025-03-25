@@ -4,7 +4,8 @@ import { UploadDropzone } from "@/lib/uploadthing";
 import { OurFileRouter } from "@/app/api/uploadthing/core";
 import toast from "react-hot-toast";    
 import axios from "axios";
-import { Wind } from "lucide-react";
+import useFileStore from "@/store/file-store";
+import { getFiles } from "@/lib/getInitialFiles";
 
 
 interface FileUploadProps {
@@ -12,10 +13,9 @@ interface FileUploadProps {
 }
 
 const FileUpload = ({
-    endPoint,
 }: FileUploadProps) => {
 
-    
+    const {  setFiles } = useFileStore()
 
     const submit = async (data : {
         name: string;
@@ -23,7 +23,7 @@ const FileUpload = ({
     }) => {
         const response = await axios.post("/api/upload_file", data);
         toast.success("File Uploaded");
-        window.location.reload();
+        setFiles(await getFiles())
     };
 
     return ( 

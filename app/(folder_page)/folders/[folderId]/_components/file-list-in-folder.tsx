@@ -23,8 +23,8 @@ interface File {
 const FileListInFolder = ({
     folderId
 }: FileListInFolderProps) => {
-
     const [files, setFiles] = useState<any[]>([]);
+    const [shortenLength, setShortenLength] = useState(20);
     useEffect(() =>{
         const getFiles = async () =>{
             const res = await axios.post("/api/files/folderpage", {folderId})
@@ -35,16 +35,34 @@ const FileListInFolder = ({
         getFiles()
     },[])
 
+    useEffect(() => {
+            const handleResize = () => {
+                if (window.innerWidth < 1024) { // md breakpoint ~768px, lg ~1024px
+                    setShortenLength(10);
+                } else {
+                    setShortenLength(20);
+                }
+            };
+        
+            // Call on mount
+            handleResize();
+        
+            // Listen for resize
+            window.addEventListener("resize", handleResize);
+        
+            return () => window.removeEventListener("resize", handleResize);
+        }, []);
+
     return ( 
         <>
-            <div className="mt-5">
-                <div className="flex gap-4 ">
+            <div className="mt-5 mb-10">
+                <div className="grid grid-cols-4 gap-4 ">
                     {files.map((file: File) => (
-                        <div key={file.id}>
+                        <div key={file.id} className="col-span-4 sm:col-span-2 md:col-span-1">
                             <div>
                                 <FileList
                                     id = {file.id} 
-                                    name={shortenString(file.name, 10)}
+                                    name={shortenString(file.name, shortenLength)}
                                     url={file.url}
                                 />
                             </div>

@@ -2,7 +2,7 @@
 
 import FileList from "@/components/file-list";
 import { shortenString } from "@/lib/shorten-string";
-import axios from "axios";
+import useFileStore from "@/store/file-store";  
 import { useEffect, useState } from "react";
 
 
@@ -26,8 +26,9 @@ const FileListHomePage = ({
     folderId
 }: FileListProps) => {
 
-    const [files, setFiles] = useState<File[]>([]);
+    const {files} = useFileStore()
     const [shortenLength, setShortenLength] = useState(20);
+
 
     const data = {
         folderId
@@ -51,14 +52,6 @@ const FileListHomePage = ({
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    useEffect(() => {
-        const getFiles = async () => {
-            const response = await axios.get("/api/files/homepage");
-            setFiles(response.data);
-        }
-
-        getFiles();
-    },[])
 
     return ( 
         <>

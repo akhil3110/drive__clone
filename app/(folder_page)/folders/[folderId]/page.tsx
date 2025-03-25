@@ -6,6 +6,7 @@ import EditFolder from "./_components/edit-folder";
 import AddFileInFolder from "./_components/add-file-in-folder";
 import Link from "next/link";
 import FileListInFolder from "./_components/file-list-in-folder";
+import { useInitializeFilesInFolder } from "@/store/file-in-folder-store";
 
 
 
@@ -14,8 +15,6 @@ const FolderId = async({
 }:{
     params: {folderId: string}
 }) => {
-
-
     const folderExist = await db.folder.findUnique({
         where: {
             id: params.folderId
